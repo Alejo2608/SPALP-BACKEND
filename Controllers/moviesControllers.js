@@ -42,6 +42,13 @@ const createMovies = async (req, res) => {
     }
  }
  
+
+
+
+
+
+
+ 
 const updateMovie = async (req, res) => {
    try {
       let path;

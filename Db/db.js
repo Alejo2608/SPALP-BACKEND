@@ -1,18 +1,16 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const Dates = require('../Models/dates')
-const addDates = require('./dbDates');
-const addReco = require('./dbReco')
+const Movies = require('../Models/movies')
+const addMovies = require('./dbMovies'); // Agrega las Pociones
 
 mongoose.set('strictQuery', false)
 
 mongoose.connect(process.env.URI) 
    .then(async()=> {
-      const potions = await Dates.find().limit(1).lean();
-      if (potions.length === 0) {
-         addDates()
-         addReco()
-         console.log('Citas Agregadas');
+      const movies = await Movies.find().limit(1).lean();
+      if (movies.length === 0) {
+         addMovies()
+         console.log('Pociones Agregados');
       }
       console.log('DB Conectada🚀')
    })
